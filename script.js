@@ -64,4 +64,79 @@ document.querySelectorAll(".btn").forEach((btn) => {
 // Welcome Message
 window.onload = function () {
   console.log("Welcome to Bheem Mishra Portfolio");
+};// ===== BHEEM AI =====
+
+const chatBtn = document.getElementById("chat-btn");
+const chatBox = document.getElementById("chat-box");
+const closeChat = document.getElementById("close-chat");
+
+chatBtn.onclick = () => {
+  chatBox.style.display = "block";
 };
+
+closeChat.onclick = () => {
+  chatBox.style.display = "none";
+};
+
+function replyAI(){
+
+let input = document.getElementById("userInput");
+
+let msg = input.value.trim();
+
+if(msg=="") return;
+
+let body = document.getElementById("chat-body");
+
+body.innerHTML += `<div class="user">${msg}</div>`;
+
+let ans="Sorry, I don't know this yet.";
+
+let q = msg.toLowerCase();
+
+if(q.includes("upsc"))
+ans="UPSC conducts the Civil Services Examination every year in three stages: Prelims, Mains and Interview.";
+
+else if(q.includes("ias"))
+ans="To become an IAS Officer you need to clear the UPSC Civil Services Examination.";
+
+else if(q.includes("history"))
+ans="History is an important subject for UPSC. Start with NCERT books and then Spectrum Modern History.";
+
+else if(q.includes("geography"))
+ans="Study NCERT Geography first, then G.C. Leong and Atlas practice.";
+
+else if(q.includes("polity"))
+ans="Read Indian Polity by M. Laxmikanth along with the Constitution.";
+
+else if(q.includes("economy"))
+ans="Start with NCERT and basic Economy concepts. Follow the Budget and Economic Survey.";
+
+else if(q.includes("environment"))
+ans="Study Shankar IAS Environment Book and current affairs.";
+
+else if(q.includes("science"))
+ans="Read NCERT Science and follow current science developments.";
+
+else if(q.includes("current"))
+ans="Read PIB, PRS, The Hindu and Indian Express daily.";
+
+else if(q.includes("ncert"))
+ans="Read NCERT Books from Class 6 to 12 carefully.";
+
+else if(q.includes("laxmikanth"))
+ans="Indian Polity by M. Laxmikanth is the standard book for UPSC Polity.";
+
+else if(q.includes("hello"))
+ans="Hello 👋 Welcome to Bheem AI.";
+
+else if(q.includes("hi"))
+ans="Hi 😊 How can I help you with UPSC?";
+
+body.innerHTML += `<div class="bot">${ans}</div>`;
+
+input.value="";
+
+body.scrollTop = body.scrollHeight;
+
+}
