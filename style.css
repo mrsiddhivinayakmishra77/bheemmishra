@@ -1,0 +1,247 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#07101f;
+color:#fff;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(10px);
+padding:18px 8%;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#4db8ff;
+}
+
+.navbar ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+.navbar ul li a{
+color:white;
+text-decoration:none;
+font-size:17px;
+transition:.4s;
+}
+
+.navbar ul li a:hover{
+color:#4db8ff;
+}
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:140px 8%;
+min-height:100vh;
+gap:50px;
+}
+
+.hero-image img{
+width:330px;
+height:330px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #4db8ff;
+box-shadow:0 0 40px #4db8ff;
+transition:.4s;
+}
+
+.hero-image img:hover{
+transform:scale(1.05);
+box-shadow:0 0 60px #4db8ff;
+}
+
+.hero-text{
+max-width:650px;
+}
+
+.hero-text h1{
+font-size:65px;
+margin:10px 0;
+}
+
+.hero-text span{
+color:#4db8ff;
+}
+
+.hero-text h3{
+margin:10px 0;
+font-weight:500;
+}
+
+.hero-text p{
+margin:25px 0;
+line-height:1.8;
+font-size:17px;
+color:#ddd;
+}
+
+.btn{
+display:inline-block;
+padding:14px 35px;
+background:#4db8ff;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:600;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px #4db8ff;
+}section{
+padding:90px 8%;
+}
+
+section h2{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+color:#4db8ff;
+}
+
+.about-box,
+.journey-card,
+.achievement-card,
+.blog-card,
+.contact-card,
+.project-card,
+.edu-card{
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+line-height:1.8;
+margin-bottom:25px;
+transition:.4s;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.about-box:hover,
+.journey-card:hover,
+.achievement-card:hover,
+.blog-card:hover,
+.contact-card:hover,
+.project-card:hover,
+.edu-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #4db8ff;
+}
+
+.education-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.skill-card{
+background:#12345d;
+padding:20px;
+text-align:center;
+border-radius:15px;
+font-weight:600;
+transition:.4s;
+cursor:pointer;
+}
+
+.skill-card:hover{
+background:#4db8ff;
+transform:scale(1.05);
+box-shadow:0 0 20px #4db8ff;
+}
+
+footer{
+background:#050b18;
+text-align:center;
+padding:40px;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer h2{
+color:#4db8ff;
+margin-bottom:10px;
+}
+
+footer p{
+color:#bbb;
+margin:8px 0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#4db8ff;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+background:#07101f;
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:130px;
+}
+
+.hero-image img{
+width:240px;
+height:240px;
+}
+
+.hero-text h1{
+font-size:42px;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.navbar ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+  }
