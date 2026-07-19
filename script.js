@@ -139,4 +139,8 @@ input.value="";
 
 body.scrollTop = body.scrollHeight;
 
-}
+}document.getElementById("userInput").addEventListener("keypress", function(e){
+    if(e.key==="Enter"){
+        replyAI();
+    }
+});
