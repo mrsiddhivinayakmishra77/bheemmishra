@@ -244,4 +244,27 @@ flex-wrap:wrap;
 justify-content:center;
 }
 
-  }
+  }#news{
+padding:80px 8%;
+}
+
+.news-links{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.news-links a{
+background:#10233f;
+padding:18px;
+border-radius:12px;
+color:#fff;
+text-decoration:none;
+font-size:18px;
+transition:.3s;
+}
+
+.news-links a:hover{
+background:#4db8ff;
+transform:translateX(10px);
+}
