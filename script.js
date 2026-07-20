@@ -136,4 +136,29 @@ sendMessage();
 
 }
 
-});
+});// ===== UPSC Countdown =====
+
+const examDate = new Date("May 24, 2027 09:30:00").getTime();
+
+function updateCountdown(){
+
+const now = new Date().getTime();
+
+const gap = examDate - now;
+
+const days = Math.floor(gap/(1000*60*60*24));
+const hours = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((gap%(1000*60*60))/(1000*60));
+const seconds = Math.floor((gap%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days+" Days "+
+hours+" Hours "+
+minutes+" Min "+
+seconds+" Sec Left";
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
