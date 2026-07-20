@@ -167,4 +167,91 @@ updateCountdown();if ("serviceWorker" in navigator) {
       .then(() => console.log("Service Worker Registered"))
       .catch((err) => console.log("SW Error:", err));
   });
+}// ===== MODEL PRACTICE =====
+
+const startPractice = document.getElementById("startPractice");
+
+const questions = [
+{
+question:"भारत का संविधान कब लागू हुआ?",
+options:["15 अगस्त 1947","26 जनवरी 1950","26 नवम्बर 1949","2 अक्टूबर 1950"],
+answer:1
+},
+{
+question:"भारत का राष्ट्रीय पशु कौन है?",
+options:["शेर","बाघ","हाथी","चीता"],
+answer:1
+}
+];
+
+let current = 0;
+
+if(startPractice){
+
+startPractice.addEventListener("click",showQuestion);
+
+}
+
+function showQuestion(){
+
+const box = document.getElementById("practiceBox");
+
+let q = questions[current];
+
+box.innerHTML = `
+<h3>📚 Model Practice</h3>
+
+<p><b>Q${current+1}.</b> ${q.question}</p>
+
+<button class="optionBtn" onclick="checkAnswer(0)">A. ${q.options[0]}</button><br><br>
+
+<button class="optionBtn" onclick="checkAnswer(1)">B. ${q.options[1]}</button><br><br>
+
+<button class="optionBtn" onclick="checkAnswer(2)">C. ${q.options[2]}</button><br><br>
+
+<button class="optionBtn" onclick="checkAnswer(3)">D. ${q.options[3]}</button>
+
+`;
+
+}
+
+window.checkAnswer=function(selected){
+
+let q=questions[current];
+
+const buttons=document.querySelectorAll(".optionBtn");
+
+buttons.forEach(btn=>btn.disabled=true);
+
+if(selected===q.answer){
+
+buttons[selected].style.background="green";
+
+}else{
+
+buttons[selected].style.background="red";
+
+buttons[q.answer].style.background="green";
+
+}
+
+setTimeout(()=>{
+
+current++;
+
+if(current<questions.length){
+
+showQuestion();
+
+}else{
+
+document.getElementById("practiceBox").innerHTML=`
+<h3>🎉 Practice Completed</h3>
+<p>More Questions Coming Soon...</p>
+`;
+
+}
+
+},1500);
+
 }
