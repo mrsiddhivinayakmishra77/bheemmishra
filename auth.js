@@ -46,11 +46,9 @@ if (loginBtn) {
 const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-
-    signOut(auth).then(() => {
-      window.location.href = "login.html";
-    });
-
+  logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await signOut(auth);
+    window.location.href = "login.html";
   });
 }
