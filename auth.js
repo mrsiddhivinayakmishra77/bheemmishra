@@ -3,8 +3,12 @@ import { auth } from "./firebase-config.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile
+  updateProfile,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+// Signup
+const signupBtn = document.getElementById("signupBtn");
 
 if (signupBtn) {
   signupBtn.addEventListener("click", async () => {
@@ -14,7 +18,7 @@ if (signupBtn) {
     const password = document.getElementById("password").value;
 
     if (!username) {
-      alert("Please enter a username.");
+      alert("Please enter a username");
       return;
     }
 
@@ -40,6 +44,7 @@ const loginBtn = document.getElementById("loginBtn");
 
 if (loginBtn) {
   loginBtn.addEventListener("click", () => {
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -51,15 +56,19 @@ if (loginBtn) {
       .catch((error) => {
         alert(error.message);
       });
-  });
-}import { signOut } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
+  });
+}
+
+// Logout
 const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async (e) => {
     e.preventDefault();
+
     await signOut(auth);
+
     window.location.href = "login.html";
   });
 }
