@@ -64,83 +64,76 @@ document.querySelectorAll(".btn").forEach((btn) => {
 // Welcome Message
 window.onload = function () {
   console.log("Welcome to Bheem Mishra Portfolio");
-};// ===== BHEEM AI =====
+};/* ===== BHEEM AI 2.0 ===== */
 
 const chatBtn = document.getElementById("chat-btn");
 const chatBox = document.getElementById("chat-box");
 const closeChat = document.getElementById("close-chat");
+const sendBtn = document.getElementById("sendBtn");
+const input = document.getElementById("userInput");
+const body = document.getElementById("chat-body");
+const typing = document.getElementById("typing");
 
-chatBtn.onclick = () => {
+chatBtn.addEventListener("click", () => {
   chatBox.style.display = "block";
-};
+});
 
-closeChat.onclick = () => {
+closeChat.addEventListener("click", () => {
   chatBox.style.display = "none";
-};
+});
 
-function replyAI(){
+function timeNow() {
+  const d = new Date();
+  let h = d.getHours();
+  let m = d.getMinutes().toString().padStart(2, "0");
+  return h + ":" + m;
+}
 
-let input = document.getElementById("userInput");
+function sendMessage() {
 
-let msg = input.value.trim();
+  let msg = input.value.trim();
 
-if(msg=="") return;
+  if (msg === "") return;
 
-let body = document.getElementById("chat-body");
+  body.innerHTML += `
+  <div class="user">
+    ${msg}
+    <span class="time">${timeNow()}</span>
+  </div>`;
 
-body.innerHTML += `<div class="user">${msg}</div>`;
+  body.scrollTop = body.scrollHeight;
 
-let ans="Sorry, I don't know this yet.";
+  input.value = "";
 
-let q = msg.toLowerCase();
+  typing.style.display = "block";
 
-if(q.includes("upsc"))
-ans="UPSC conducts the Civil Services Examination every year in three stages: Prelims, Mains and Interview.";
+  setTimeout(() => {
 
-else if(q.includes("ias"))
-ans="To become an IAS Officer you need to clear the UPSC Civil Services Examination.";
+    typing.style.display = "none";
 
-else if(q.includes("history"))
-ans="History is an important subject for UPSC. Start with NCERT books and then Spectrum Modern History.";
+    body.innerHTML += `
+    <div class="bot">
+    🤖 Bheem AI is ready.<br><br>
+    Gemini AI integration is coming soon.<br><br>
+    You asked:<br>
+    <b>${msg}</b>
+    <span class="time">${timeNow()}</span>
+    </div>`;
 
-else if(q.includes("geography"))
-ans="Study NCERT Geography first, then G.C. Leong and Atlas practice.";
+    body.scrollTop = body.scrollHeight;
 
-else if(q.includes("polity"))
-ans="Read Indian Polity by M. Laxmikanth along with the Constitution.";
+  },1200);
 
-else if(q.includes("economy"))
-ans="Start with NCERT and basic Economy concepts. Follow the Budget and Economic Survey.";
+}
 
-else if(q.includes("environment"))
-ans="Study Shankar IAS Environment Book and current affairs.";
+sendBtn.addEventListener("click", sendMessage);
 
-else if(q.includes("science"))
-ans="Read NCERT Science and follow current science developments.";
+input.addEventListener("keypress", function(e){
 
-else if(q.includes("current"))
-ans="Read PIB, PRS, The Hindu and Indian Express daily.";
+if(e.key==="Enter"){
 
-else if(q.includes("ncert"))
-ans="Read NCERT Books from Class 6 to 12 carefully.";
+sendMessage();
 
-else if(q.includes("laxmikanth"))
-ans="Indian Polity by M. Laxmikanth is the standard book for UPSC Polity.";
+}
 
-else if(q.includes("hello"))
-ans="Hello 👋 Welcome to Bheem AI.";
-
-else if(q.includes("hi"))
-ans="Hi 😊 How can I help you with UPSC?";
-
-body.innerHTML += `<div class="bot">${ans}</div>`;
-
-input.value="";
-
-body.scrollTop = body.scrollHeight;
-
-}document.getElementById("userInput").addEventListener("keypress", function(e){
-    if(e.key==="Enter"){
-        replyAI();
-    }
 });
