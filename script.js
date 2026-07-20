@@ -130,9 +130,11 @@ async function sendMessage() {
     }
   );
 
-  const data = await response.json();
+const data = await response.json();
+console.log(data);
+alert(JSON.stringify(data));
 
-  typing.style.display = "none";
+typing.style.display = "none";
 
   const reply =
     data.candidates?.[0]?.content?.parts?.[0]?.text ||
