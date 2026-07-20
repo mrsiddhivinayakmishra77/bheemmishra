@@ -409,4 +409,23 @@ height:78vh;
 bottom:90px;
 }
 
+}.countdown-box{
+margin-top:30px;
+padding:20px;
+background:rgba(255,255,255,.08);
+border-radius:15px;
+text-align:center;
+backdrop-filter:blur(8px);
+}
+
+.countdown-box h2{
+font-size:24px;
+margin-bottom:10px;
+color:#4db8ff;
+}
+
+#countdown{
+font-size:30px;
+font-weight:bold;
+color:#fff;
 }
