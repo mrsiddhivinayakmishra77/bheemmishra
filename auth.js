@@ -2,7 +2,8 @@ import { auth } from "./firebase-config.js";
 
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 // Signup
