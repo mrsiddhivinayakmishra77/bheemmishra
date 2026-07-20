@@ -89,7 +89,7 @@ function timeNow() {
   return h + ":" + m;
 }
 
-function sendMessage() {
+async function sendMessage() {
 
   let msg = input.value.trim();
 
