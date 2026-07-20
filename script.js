@@ -107,22 +107,55 @@ async function sendMessage() {
 
   typing.style.display = "block";
 
-  setTimeout(() => {
+  try {
 
-    typing.style.display = "none";
+  const response = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=YOUR_API_KEY_HERE",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: msg
+              }
+            ]
+          }
+        ]
+      })
+    }
+  );
 
-    body.innerHTML += `
-    <div class="bot">
-    🤖 Bheem AI is ready.<br><br>
-    Gemini AI integration is coming soon.<br><br>
-    You asked:<br>
-    <b>${msg}</b>
+  const data = await response.json();
+
+  typing.style.display = "none";
+
+  const reply =
+    data.candidates?.[0]?.content?.parts?.[0]?.text ||
+    "No response received.";
+
+  body.innerHTML += `
+  <div class="bot">
+    🤖 ${reply}
     <span class="time">${timeNow()}</span>
-    </div>`;
+  </div>`;
 
-    body.scrollTop = body.scrollHeight;
+  body.scrollTop = body.scrollHeight;
 
-  },1200);
+} catch (error) {
+
+  typing.style.display = "none";
+
+  body.innerHTML += `
+  <div class="bot">
+    ❌ Error connecting to Gemini.
+    <span class="time">${timeNow()}</span>
+  </div>`;
+  }
 
 }
 
