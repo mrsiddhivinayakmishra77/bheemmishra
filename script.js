@@ -171,18 +171,14 @@ updateCountdown();if ("serviceWorker" in navigator) {
 
 const startPractice = document.getElementById("startPractice");
 
-const questions = [
-{
-question:"भारत का संविधान कब लागू हुआ?",
-options:["15 अगस्त 1947","26 जनवरी 1950","26 नवम्बर 1949","2 अक्टूबर 1950"],
-answer:1
-},
-{
-question:"भारत का राष्ट्रीय पशु कौन है?",
-options:["शेर","बाघ","हाथी","चीता"],
-answer:1
-}
-];
+let questions = [];
+
+fetch("questions.json")
+  .then(res => res.json())
+  .then(data => {
+    questions = data;
+  })
+  .catch(err => console.log("Questions Load Error:", err));
 
 let current = 0;
 
