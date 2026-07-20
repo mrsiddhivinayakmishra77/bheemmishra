@@ -41,4 +41,16 @@ if (loginBtn) {
         alert(error.message);
       });
   });
+}import { signOut } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+
+    signOut(auth).then(() => {
+      window.location.href = "login.html";
+    });
+
+  });
 }
